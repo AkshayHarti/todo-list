@@ -1,0 +1,18 @@
+const createNewTodo = ({ label }) => ({ label, checked: false })
+
+export default {
+	createTodo: ({ label, todos }) => {
+		const copy = todos.concat(createNewTodo({ label }))
+		return copy
+	},
+	updateTodo: ({ todoIndex, newValue, todos }) => {
+		const copy = todos
+		copy[todoIndex].label = newValue
+		return copy
+	},
+	deleteTodo: ({ todoIndex, todos }) => {
+		const copy = todos
+		copy.splice(todoIndex, 1)
+		return copy
+	},
+}
