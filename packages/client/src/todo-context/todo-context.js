@@ -1,12 +1,16 @@
 import React from 'react'
+import dispatcher from './dispatcher'
 
 const TodoContext = React.createContext()
 export default TodoContext
 
-const TodoContextProvider = () => {
+export const TodoContextProvider = () => {
 	const [todos, dispatch] = useReducer(todoReducer, [])
 
+	const dispatchableActions = dispatcher(dispatch)
+
 	const contextValue = {
+		...dispatchableActions,
 		todos,
 	}
 

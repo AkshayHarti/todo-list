@@ -1,3 +1,9 @@
+export const eventName = {
+	CREATE_TODO: 'CREATE_TODO',
+	UPDATE_TODO: 'UPDATE_TODO',
+	DELETE_TODO: 'DELETE_TODO',
+}
+
 const createNewTodo = ({ label }) => ({ label, checked: false })
 
 export default {
