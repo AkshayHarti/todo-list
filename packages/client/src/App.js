@@ -20,7 +20,15 @@ function App() {
   const todos = data.getTodos;
 
   return (
-    <div className="App">
+    <div
+      className="App"
+      style={{
+        width: "300px",
+        border: "1px solid grey",
+        borderRadius: "10px",
+        boxShadow: "4px 5px 10px -1px rgba(0,0,0,0.24)"
+      }}
+    >
       <ul>
         {todos.map((value, index) => (
           <li key={index}>{value.text}</li>

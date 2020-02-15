@@ -2,7 +2,8 @@
 	"name": "root",
 	"private": true,
 	"scripts": {
-		"dev:ui": "lerna run start --scope @akshay/ui --stream"
+		"ui": "lerna run start --scope @akshay/ui --stream",
+		"server": "lerna run start --scope @akshay/api --stream"
 	},
 	"devDependencies": {
 		"@testing-library/react": "^9.3.2",
