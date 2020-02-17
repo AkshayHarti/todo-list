@@ -1,18 +1,20 @@
-import React from 'react'
-import dispatcher from './dispatcher'
+import React, { useEffect, useReducer } from "react";
+import dispatcher from "./dispatcher";
+import todoReducer from "./reducer";
+const TodoContext = React.createContext();
+export default TodoContext;
 
-const TodoContext = React.createContext()
-export default TodoContext
+export const TodoContextProvider = ({ state = [], children }) => {
+  const [todos, dispatch] = useReducer(todoReducer, state);
 
-export const TodoContextProvider = () => {
-	const [todos, dispatch] = useReducer(todoReducer, [])
+  const dispatchableActions = dispatcher(dispatch);
 
-	const dispatchableActions = dispatcher(dispatch)
+  const contextValue = {
+    ...dispatchableActions,
+    todos
+  };
 
-	const contextValue = {
-		...dispatchableActions,
-		todos,
-	}
-
-	return <TodoContext.Provider value={contextValue}>{children}</TodoContext.Provider>
-}
+  return (
+    <TodoContext.Provider value={contextValue}>{children}</TodoContext.Provider>
+  );
+};
