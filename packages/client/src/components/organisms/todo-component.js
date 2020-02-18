@@ -14,7 +14,7 @@ const TodoComponent = () => {
       }}
     >
       {todos.map((todo, index) => (
-        <SortableItem key={index} value={todo.text} />
+        <SortableItem index={index} value={todo.text} />
       ))}
     </SortableList>
   );
