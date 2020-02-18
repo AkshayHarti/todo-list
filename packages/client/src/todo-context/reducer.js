@@ -16,5 +16,10 @@ export default (state, { type, payload }) => {
       const { todoIndex } = payload;
       return actions.createTodo({ todoIndex, todos: state });
     }
+
+    case eventName.MOVE_TODO: {
+      const { oldIndex, newIndex } = payload;
+      return actions.createTodo({ oldIndex, newIndex, todos: state });
+    }
   }
 };

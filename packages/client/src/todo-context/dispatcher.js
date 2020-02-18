@@ -13,9 +13,14 @@ export default dispatch => {
     dispatch({ type: eventName.DELETE_TODO, payload });
   };
 
+  const moveTodo = payload => {
+    dispatch({ type: eventName.MOVE_TODO, payload });
+  };
+
   return {
     createTodo,
     updateTodo,
-    deleteTodo
+    deleteTodo,
+    moveTodo
   };
 };
