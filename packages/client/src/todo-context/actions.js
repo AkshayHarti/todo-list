@@ -1,5 +1,4 @@
 export const eventName = {
-  INIT_TODO: "INIT_TODO",
   CREATE_TODO: "CREATE_TODO",
   UPDATE_TODO: "UPDATE_TODO",
   DELETE_TODO: "DELETE_TODO"
@@ -8,9 +7,6 @@ export const eventName = {
 const createNewTodo = ({ label }) => ({ label, checked: false });
 
 export default {
-  initTodo: ({ todos }) => {
-    return todos;
-  },
   createTodo: ({ label, todos }) => {
     const copy = todos.concat(createNewTodo({ label }));
     return copy;

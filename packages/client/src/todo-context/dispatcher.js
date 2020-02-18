@@ -1,10 +1,6 @@
 import { eventName } from "./actions";
 
 export default dispatch => {
-  const initTodo = payload => {
-    dispatch({ type: eventName.INIT_TODO, payload });
-  };
-
   const createTodo = payload => {
     dispatch({ type: eventName.CREATE_TODO, payload });
   };
@@ -18,7 +14,6 @@ export default dispatch => {
   };
 
   return {
-    initTodo,
     createTodo,
     updateTodo,
     deleteTodo
