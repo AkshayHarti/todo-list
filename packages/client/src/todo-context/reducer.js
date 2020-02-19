@@ -2,6 +2,11 @@ import actions, { eventName } from "./actions";
 
 export default (state, { type, payload }) => {
   switch (type) {
+    case eventName.SET_TODOS: {
+      const { todos } = payload;
+      return actions.setTodos({ todos });
+    }
+
     case eventName.CREATE_TODO: {
       const { label } = payload;
       return actions.createTodo({ label, todos: state });
