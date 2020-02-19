@@ -6,7 +6,7 @@ const DeleteIconButton = () => {
   const handleClick = () => {};
 
   return (
-    <IconButton aria-lable="delete" onClick={handleClick}>
+    <IconButton aria-label="delete" onClick={handleClick}>
       <DeleteIcon />
     </IconButton>
   );

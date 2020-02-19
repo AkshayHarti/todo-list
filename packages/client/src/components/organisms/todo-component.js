@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { SortableList, SortableItem } from "../atoms";
+import { SortableList, SortableItem, SortableHandle } from "../atoms";
 import { TodoContext } from "../../todo-context";
 
 const TodoComponent = () => {
@@ -7,14 +7,14 @@ const TodoComponent = () => {
 
   return (
     <SortableList
-      onSortEnd={({ oldIndex, newIndex }) => {
-        console.log({ oldIndex, newIndex });
-
-        return moveTodo({ oldIndex, newIndex });
-      }}
+      useDragHandle={true}
+      onSortEnd={({ oldIndex, newIndex }) => moveTodo({ oldIndex, newIndex })}
     >
       {todos.map((todo, index) => (
-        <SortableItem index={index} value={todo.text} />
+        <SortableItem key={todo._id} index={index}>
+          <SortableHandle />
+          {todo.text}
+        </SortableItem>
       ))}
     </SortableList>
   );

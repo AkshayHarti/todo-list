@@ -14,12 +14,15 @@ export default (state, { type, payload }) => {
 
     case eventName.DELETE_TODO: {
       const { todoIndex } = payload;
-      return actions.createTodo({ todoIndex, todos: state });
+      return actions.deleteTodo({ todoIndex, todos: state });
     }
 
     case eventName.MOVE_TODO: {
       const { oldIndex, newIndex } = payload;
-      return actions.createTodo({ oldIndex, newIndex, todos: state });
+      return actions.moveTodo({ oldIndex, newIndex, todos: state });
     }
+
+    default:
+      return;
   }
 };
