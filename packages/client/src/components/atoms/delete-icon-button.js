@@ -1,12 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import IconButton from "@material-ui/core/IconButton";
 import DeleteIcon from "@material-ui/icons/Delete";
 
-const DeleteIconButton = () => {
-  const handleClick = () => {};
-
+const DeleteIconButton = ({ handleOnClick }) => {
   return (
-    <IconButton aria-label="delete" onClick={handleClick}>
+    <IconButton aria-label="delete" onClick={handleOnClick}>
       <DeleteIcon />
     </IconButton>
   );

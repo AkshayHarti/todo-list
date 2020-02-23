@@ -1,31 +1,29 @@
 import arrayMove from "array-move";
+import uuid from "uuid";
 
 export const eventName = {
-  SET_TODOS: "SET_TODOS",
   CREATE_TODO: "CREATE_TODO",
   UPDATE_TODO: "UPDATE_TODO",
   DELETE_TODO: "DELETE_TODO",
   MOVE_TODO: "MOVE_TODO"
 };
 
-const createNewTodo = ({ label }) => ({ label, checked: false });
+const createNewTodo = ({ _id, text }) => ({ _id, text, checked: false });
 
 export default {
-  setTodos: ({ todos }) => {
-    return todos;
-  },
-  createTodo: ({ label, todos }) => {
-    const copy = todos.concat(createNewTodo({ label }));
+  createTodo: ({ _id, text, todos }) => {
+    const copy = todos.concat(createNewTodo({ _id, text }));
     return copy;
   },
   updateTodo: ({ todoIndex, newValue, todos }) => {
     const copy = todos;
-    copy[todoIndex].label = newValue;
+    copy[todoIndex].text = newValue;
     return copy;
   },
   deleteTodo: ({ todoIndex, todos }) => {
     const copy = todos;
     copy.splice(todoIndex, 1);
+
     return copy;
   },
   moveTodo: ({ oldIndex, newIndex, todos }) => {

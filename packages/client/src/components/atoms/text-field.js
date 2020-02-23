@@ -1,14 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import TextField from "@material-ui/core/TextField";
 
-const _TextField = ({ value }) => {
+const _TextField = ({ value, handleTextChange }) => {
   const [todoValue, setTodoValue] = useState(value);
 
-  const handleTodoValueChange = ({ target: { value } }) => {
-    setTodoValue(value);
-  };
+  const handleOnChange = useCallback(
+    ({ target: { value } }) => {
+      handleTextChange(value);
+      setTodoValue(value);
+    },
+    [setTodoValue]
+  );
 
-  return <TextField onChange={handleTodoValueChange} value={todoValue} />;
+  return <TextField onChange={handleOnChange} value={todoValue} />;
 };
 
 export default _TextField;

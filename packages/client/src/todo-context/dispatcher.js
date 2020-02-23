@@ -1,9 +1,6 @@
 import { eventName } from "./actions";
 
 export default dispatch => {
-  const setTodos = payload => {
-    dispatch({ type: eventName.SET_TODOS, payload });
-  };
   const createTodo = payload => {
     dispatch({ type: eventName.CREATE_TODO, payload });
   };

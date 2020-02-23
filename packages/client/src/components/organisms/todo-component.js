@@ -5,17 +5,12 @@ import { AddButton, SortableList, SortableItem } from "../atoms";
 import { TodoItem } from "../organisms";
 import { TodoContext } from "../../todo-context";
 
-const CREATE_TODO = gql`
-  mutation AddTodo($text: String) {
-    addTodo(text: $text) {
-      _id
-      text
-    }
-  }
-`;
-
 const TodoItems = () => {
   const { todos, moveTodo } = useContext(TodoContext);
+  if (todos.length === 0) {
+    return null;
+  }
+  console.log("todos = ", todos);
 
   return (
     <SortableList
@@ -23,8 +18,8 @@ const TodoItems = () => {
       onSortEnd={({ oldIndex, newIndex }) => moveTodo({ oldIndex, newIndex })}
     >
       {todos.map((todo, index) => (
-        <SortableItem key={todo._id} index={index}>
-          <TodoItem text={todo.text} />
+        <SortableItem key={todo.id} index={index}>
+          <TodoItem id={todo._id} todoIndex={index} text={todo.text} />
         </SortableItem>
       ))}
     </SortableList>
@@ -32,14 +27,10 @@ const TodoItems = () => {
 };
 
 const TodoComponent = () => {
-  const [addTodo] = useMutation(CREATE_TODO);
-  const { setTodos } = useContext(TodoContext);
+  const { createTodo } = useContext(TodoContext);
 
   const handleOnClick = async () => {
-    addTodo("").then(data => {
-      setTodos({ todos: data.addTodo });
-    });
-    // console.log({ data });
+    createTodo();
   };
 
   return (
