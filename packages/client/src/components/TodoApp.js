@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { TodoComponent } from "./components/organisms";
+import { TodoComponent } from "./organisms";
 
 const AppContainer = styled.div`
   width: 300px;

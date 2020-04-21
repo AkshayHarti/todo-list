@@ -33,14 +33,14 @@ const useAsyncReducer = (reducer, initialState = []) => {
   const [updateTodo] = useMutation(UPDATE_TODO);
   const [deleteTodo] = useMutation(DELETE_TODO);
 
-  const dispatch = async action => {
+  const dispatch = async (action) => {
     backendCall(action, { addTodo, updateTodo, deleteTodo }).then(
       ({ data }) => {
         if (action.type === eventName.CREATE_TODO) {
           action.payload = { _id: data.addTodo._id };
         }
 
-        reducer(state, action).then(newState => {
+        reducer(state, action).then((newState) => {
           try {
             setState(newState);
           } catch (error) {
@@ -62,11 +62,12 @@ async function backendCall({ type, payload }, graphqlCalls) {
     }
     case eventName.UPDATE_TODO:
       return await graphqlCalls.updateTodo({
-        variables: { id: payload.id, text: payload.newValue }
+        variables: { id: payload.id, text: payload.newValue },
       });
 
     case eventName.DELETE_TODO:
       return await graphqlCalls.deleteTodo({ variables: { id: payload.id } });
+    default:
   }
 }
 

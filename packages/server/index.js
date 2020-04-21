@@ -26,8 +26,9 @@ const typeDefs = gql`
 
   type Mutation {
     addTodo(text: String): Todos
-    updateTodo(_id: ID, text: String!): Todos
-    deleteTodo(_id: ID): Boolean
+    updateTodo(_id: ID!, text: String!): Todos
+    deleteTodo(_id: ID!): Boolean
+    moveTodo(oldIndex: Int!, newIndex: Int!): Boolean
   }
 `;
 
@@ -39,11 +40,11 @@ const typeDefs = gql`
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-  context: expressContext => {
+  context: (expressContext) => {
     return {
-      db: { Todos }
+      db: { Todos },
     };
-  }
+  },
 });
 
 // The `listen` method launches a web server.

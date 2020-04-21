@@ -2,24 +2,48 @@ import React, { useContext } from "react";
 import { gql } from "apollo-boost";
 import { useMutation } from "@apollo/react-hooks";
 import { AddButton, SortableList, SortableItem } from "../atoms";
-import { TodoItem } from "../organisms";
+import TodoItem from "./todo-item";
 import { TodoContext } from "../../todo-context";
+
+const CREATE_TODO = gql`
+  mutation AddTodo($text: String) {
+    addTodo(text: $text) {
+      _id
+      text
+    }
+  }
+`;
+
+const MOVE_TODO = gql`
+  mutation MoveTodo($oldIndex: Int!, $newIndex: Int!) {
+    moveTodo(oldIndex: $oldIndex, newIndex: $newIndex)
+  }
+`;
 
 const TodoItems = () => {
   const { todos, moveTodo } = useContext(TodoContext);
+  const [moveTodoGQL] = useMutation(MOVE_TODO);
   if (todos.length === 0) {
     return null;
   }
-  console.log("todos = ", todos);
 
   return (
     <SortableList
       useDragHandle={true}
-      onSortEnd={({ oldIndex, newIndex }) => moveTodo({ oldIndex, newIndex })}
+      onSortEnd={async ({ oldIndex, newIndex }) => {
+        await moveTodoGQL({
+          variables: {
+            oldIndex,
+            newIndex,
+          },
+        });
+
+        return moveTodo({ oldIndex, newIndex });
+      }}
     >
       {todos.map((todo, index) => (
-        <SortableItem key={todo.id} index={index}>
-          <TodoItem id={todo._id} todoIndex={index} text={todo.text} />
+        <SortableItem key={todo._id} index={index}>
+          <TodoItem _id={todo._id} todoIndex={index} text={todo.text} />
         </SortableItem>
       ))}
     </SortableList>
@@ -27,10 +51,16 @@ const TodoItems = () => {
 };
 
 const TodoComponent = () => {
-  const { createTodo } = useContext(TodoContext);
+  const { createTodo, todos } = useContext(TodoContext);
+  const [addTodoGQL] = useMutation(CREATE_TODO);
 
   const handleOnClick = async () => {
-    createTodo();
+    const {
+      data: {
+        addTodo: { _id, text },
+      },
+    } = await addTodoGQL({ variables: { text: "" } });
+    createTodo({ _id, text, todos });
   };
 
   return (

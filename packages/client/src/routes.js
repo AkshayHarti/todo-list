@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import TodoApp from "./TodoApp";
+import TodoApp from "./components/TodoApp";
 
 export default function RouterComponent() {
   return (
