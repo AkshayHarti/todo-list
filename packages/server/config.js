@@ -15,6 +15,7 @@ if (process.env.NODE_ENV === "production") {
 } else {
   url = `mongodb://${ip}:${port}/${db}`;
 }
+console.log(process.env.NODE_ENV);
 
 mongoose.connect(url, { useNewUrlParser: true });
 mongoose.connection.once("open", () =>
