@@ -3,25 +3,15 @@
 // const resolvers = require("./resolvers");
 // const { Todos } = require("./model");
 
-const http = require("http");
+const express = require("express");
+const app = express();
+const port = process.env.PORT || 3000;
 
-let hostname = "127.0.0.1";
-const port = 4000;
+app.get("/", (req, res) => res.send("Hello World!"));
 
-const serve = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader("Content-Type", "text/plain");
-  res.end("Hello World");
-});
-
-if (process.env.NODE_ENV === "production") {
-  hostname = process.env.HOSTNAME;
-}
-
-serve.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
-});
-
+app.listen(port, () =>
+  console.log(`Example app listening at http://localhost:${port}`)
+);
 // A schema is a collection of type definitions (hence "typeDefs")
 // that together define the "shape" of queries that are executed against
 // your data.
