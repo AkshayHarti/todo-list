@@ -1,14 +1,17 @@
 {
-	"name": "root",
-	"private": true,
-	"scripts": {
-		"ui": "lerna run start --scope @akshay/ui --stream",
-		"server": "lerna run start --scope @akshay/api --stream"
-	},
-	"devDependencies": {
-		"@testing-library/react": "^9.3.2",
-		"jest": "^24.9.0",
-		"lerna": "^3.18.4"
-	},
-	"dependencies": {}
+  "name": "root",
+  "private": true,
+  "scripts": {
+    "ui": "lerna run start --scope @akshay/ui --stream",
+    "server": "lerna run start --scope @akshay/api --stream"
+  },
+  "devDependencies": {
+    "@testing-library/react": "^9.3.2",
+    "jest": "^24.9.0",
+    "lerna": "^3.18.4"
+  },
+  "dependencies": {},
+  "engines": {
+    "node": "10.16.3"
+  }
 }

@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "HOSTNAME=todo-lean.herokuapp.com node index.js"
+    "start": "node index.js"
   },
   "keywords": [
     "example",
@@ -16,7 +16,6 @@
   "dependencies": {
     "apollo-server": "^2.9.16",
     "array-move": "^2.2.1",
-    "express": "^4.17.1",
     "graphql": "^14.6.0",
     "mongoose": "^5.8.10"
   },
