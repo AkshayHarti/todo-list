@@ -7,10 +7,11 @@
   },
   "devDependencies": {
     "@testing-library/react": "^9.3.2",
-    "jest": "^24.9.0",
+    "jest": "^24.9.0"
+  },
+  "dependencies": {
     "lerna": "^3.18.4"
   },
-  "dependencies": {},
   "engines": {
     "node": "10.16.3"
   }
