@@ -6,7 +6,7 @@ const localip = "127.0.0.1";
 const ip = localip;
 const port = "27017";
 const db = "todo-db";
-const url = "";
+let url = "";
 
 if (process.env.NODE_ENV === "production") {
   url =
