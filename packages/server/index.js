@@ -1,7 +1,9 @@
-const { ApolloServer, gql } = require("apollo-server");
-require("./config");
-const resolvers = require("./resolvers");
-const { Todos } = require("./model");
+// const { ApolloServer, gql } = require("apollo-server");
+// require("./config");
+// const resolvers = require("./resolvers");
+// const { Todos } = require("./model");
+
+return { sample: "data" };
 
 // A schema is a collection of type definitions (hence "typeDefs")
 // that together define the "shape" of queries that are executed against
