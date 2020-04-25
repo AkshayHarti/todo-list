@@ -6,11 +6,20 @@
   "scripts": {
     "start": "nodemon --inspect index.js"
   },
+  "keywords": [
+    "example",
+    "heroku"
+  ],
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  },
   "dependencies": {
     "apollo-server": "^2.9.16",
     "array-move": "^2.2.1",
     "graphql": "^14.6.0",
-    "mongoose": "^5.8.10",
-    "nodemon": "^2.0.2"
+    "mongoose": "^5.8.10"
+  },
+  "engines": {
+    "node": "10.16.3"
   }
 }
