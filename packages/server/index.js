@@ -5,7 +5,7 @@
 
 const http = require("http");
 
-const hostname = "127.0.0.1";
+let hostname = "127.0.0.1";
 const port = 4000;
 
 const serve = http.createServer((req, res) => {
@@ -13,6 +13,10 @@ const serve = http.createServer((req, res) => {
   res.setHeader("Content-Type", "text/plain");
   res.end("Hello World");
 });
+
+if (process.env.NODE_ENV === "production") {
+  hostname = process.env.HOSTNAME;
+}
 
 serve.listen(port, hostname, () => {
   console.log(`Server running at http://${hostname}:${port}/`);
