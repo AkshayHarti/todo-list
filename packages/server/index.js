@@ -1,5 +1,5 @@
 const { ApolloServer } = require("apollo-server");
-// require("./config");
+require("./config");
 const resolvers = require("./resolvers");
 const { Todos } = require("./model");
 const typeDefs = require("./schema");

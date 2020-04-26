@@ -9,8 +9,7 @@ const db = "todo-db";
 let url = "";
 
 if (process.env.NODE_ENV === "production") {
-  url =
-    "mongodb+srv://akshay:akshay123@cluster0-dgat9.mongodb.net/todo-db?retryWrites=true&w=majority";
+  url = "mongodb://akshay:akshay123@ds237357.mlab.com:37357/todo-db";
   // "mongodb://ubt40dsdp5m4ehdajxzi:w82yQv7ivLgR4euAqX0J@btg1fklfnkgc30r-mongodb.services.clever-cloud.com:27017/btg1fklfnkgc30r";
 } else {
   url = `mongodb://${ip}:${port}/${db}`;
