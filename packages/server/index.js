@@ -1,4 +1,5 @@
-const { ApolloServer } = require("apollo-server");
+const express = require("express");
+const { ApolloServer } = require("apollo-server-express");
 require("./config");
 const resolvers = require("./resolvers");
 const { Todos } = require("./model");
@@ -19,7 +20,19 @@ const server = new ApolloServer({
   },
 });
 
+const app = express();
+server.applyMiddleware({ app });
+const port = process.env.PORT || 4000;
+
+app.get("/", (req, res) => res.send("Hello World!"));
+
 // The `listen` method launches a web server.
-server.listen({ port: process.env.PORT || 4000 }).then(({ url }) => {
-  console.log(`🚀  Server ready at ${url}`);
-});
+app.listen(port, () =>
+  console.log(
+    `🚀  Server ready at http://localhost:${port}${server.graphqlPath}`
+  )
+);
+
+// server.listen({ port: process.env.PORT || 4000 }).then(({ url }) => {
+//   console.log(`🚀  Server ready at ${url}`);
+// });
