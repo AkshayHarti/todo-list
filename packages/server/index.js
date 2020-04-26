@@ -1,8 +1,8 @@
-const { ApolloServer, gql } = require("apollo-server");
+const { ApolloServer } = require("apollo-server");
 // require("./config");
 const resolvers = require("./resolvers");
 const { Todos } = require("./model");
-import typeDefs from "./schema";
+const typeDefs = require("./schema");
 
 // Resolvers define the technique for fetching the types defined in the
 // schema. This resolver retrieves books from the "books" array above.
