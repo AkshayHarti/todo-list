@@ -1,1 +1,1 @@
-web: yarn && npm start
+web: npm install packages/server && node packages/server/index.js
