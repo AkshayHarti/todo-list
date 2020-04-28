@@ -17,7 +17,7 @@ const GET_TODOS = gql`
 `;
 
 const client = new ApolloClient({
-  uri: "http://localhost:4000/graphql"
+  uri: "https://todo-lean.herokuapp.com/graphql",
 });
 
 const App = () => (
