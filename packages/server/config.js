@@ -6,7 +6,6 @@ const localip = "127.0.0.1";
 const ip = localip;
 const port = "27017";
 const db = "todo-db";
-let url = "";
 const localMongo = `mongodb://${ip}:${port}/${db}`;
 const prodMongo = "mongodb://akshay:akshay123@ds237357.mlab.com:37357/todo-db";
 
