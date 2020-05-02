@@ -7,15 +7,12 @@ const ip = localip;
 const port = "27017";
 const db = "todo-db";
 let url = "";
+const localMongo = `mongodb://${ip}:${port}/${db}`;
+const prodMongo = "mongodb://akshay:akshay123@ds237357.mlab.com:37357/todo-db";
 
-if (process.env.NODE_ENV === "production") {
-  url = "mongodb://akshay:akshay123@ds237357.mlab.com:37357/todo-db";
-} else {
-  url = `mongodb://${ip}:${port}/${db}`;
-}
-console.log(process.env.NODE_ENV);
+const mongoUrl = process.env.NODE_ENV === "production" ? prodMongo : localMongo;
 
-mongoose.connect(url, { useNewUrlParser: true });
+mongoose.connect(mongoUrl, { useNewUrlParser: true });
 mongoose.connection.once("open", () =>
-  console.log(`Connected to mongo at ${url}`)
+  console.log(`Connected to mongo at ${mongoUrl}`)
 );
