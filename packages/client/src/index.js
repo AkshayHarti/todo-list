@@ -16,7 +16,7 @@ const GET_TODOS = gql`
 
 const uri =
   process.env.NODE_ENV === "production"
-    ? "https://todo-lean.herokuapp.com/graphql"
+    ? "https://todo-lean-server.herokuapp.com/graphql"
     : "http://localhost:4000/graphql";
 
 const client = new ApolloClient({
