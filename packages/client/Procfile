@@ -1,1 +1,1 @@
-web: npm install --only=dev --prefix packages/client && npm install --prefix packages/client && npm run build --prefix packages/client && node packages/client/server.js
+web: npm install --only=dev --prefix packages/client && npm run build --prefix packages/client && node packages/client/server.js
