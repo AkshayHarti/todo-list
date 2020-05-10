@@ -1,4 +1,4 @@
-version: 0.1
+version: 2.1
 
 jobs:
   CI-Phase:
@@ -20,10 +20,9 @@ jobs:
       - run:
           name: Deploy to github pages
           command: lerna run deploy --stream @akshay/ui
-            
 
 workflows:
-  version: 0.1
+  version: 2
   master-pipeline:
     jobs:
       - CI-Phase
