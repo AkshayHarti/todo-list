@@ -24,7 +24,7 @@ jobs:
             git config --global user.name "akshay.harti"
       - add_ssh_keys:
           fingerprints:
-            - "b3:a7:cd:17:2e:89:82:d4:cb:eb:59:e1:65:ca:dd:72"
+            - "c9:d4:e1:9d:c6:24:7a:ce:1b:50:b3:f2:e4:0e:91:01"
       - run:
           name: Deploy to github pages
           command: lerna run deploy --scope @akshay/ui
