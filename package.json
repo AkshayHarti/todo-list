@@ -10,9 +10,7 @@
     "jest": "^24.9.0"
   },
   "dependencies": {
-    "@akshay/api": "file:packages/server",
-    "@akshay/ui": "file:packages/client",
-    "lerna": "^3.18.4"
+    "lerna": "^3.20.2"
   },
   "engines": {
     "node": "10.16.3",

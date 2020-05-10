@@ -1,0 +1,29 @@
+version: 0.1
+
+jobs:
+  CI-Phase:
+    docker:
+      - image: circleci/node:12.4.0
+    steps:
+      - checkout
+      - run:
+          name: Install Lerna
+          command: sudo npm install -g lerna@3.20.2
+      - run:
+          name: Lerna Bootstrap
+          command: lerna bootstrap
+      - run:
+          name: Build Client
+          command: lerna run build --stream @akshay/ui
+          environment:
+            CI: "false"
+      - run:
+          name: Deploy to github pages
+          command: lerna run deploy --stream @akshay/ui
+            
+
+workflows:
+  version: 0.1
+  master-pipeline:
+    jobs:
+      - CI-Phase
