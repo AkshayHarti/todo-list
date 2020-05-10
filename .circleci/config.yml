@@ -18,6 +18,12 @@ jobs:
           environment:
             CI: "false"
       - run:
+          name: Set github user email
+          command: git config --global user.email "akshay.r555@gmail.com"
+      - run:
+          name: Set github user name
+          command: git config --global user.name "akshay.harti"
+      - run:
           name: Deploy to github pages
           command: lerna run deploy --scope @akshay/ui
 
