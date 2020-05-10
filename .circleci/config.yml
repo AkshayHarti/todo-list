@@ -14,12 +14,12 @@ jobs:
           command: lerna bootstrap
       - run:
           name: Build Client
-          command: lerna run build --stream @akshay/ui
+          command: lerna run build --scope @akshay/ui
           environment:
             CI: "false"
       - run:
           name: Deploy to github pages
-          command: lerna run deploy --stream @akshay/ui
+          command: lerna run deploy --scope @akshay/ui
 
 workflows:
   version: 2
