@@ -31,7 +31,7 @@ const TodoItems = () => {
     <SortableList
       useDragHandle={true}
       onSortEnd={async ({ oldIndex, newIndex }) => {
-        await moveTodoGQL({
+        moveTodoGQL({
           variables: {
             oldIndex,
             newIndex,
