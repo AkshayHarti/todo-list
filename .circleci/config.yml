@@ -18,11 +18,14 @@ jobs:
           environment:
             CI: "false"
       - run:
-          name: Set github user email
-          command: git config --global user.email "akshay.r555@gmail.com"
-      - run:
-          name: Set github user name
-          command: git config --global user.name "akshay.harti"
+          name: Install and configure dependencies
+          command: |
+            npm install -g --silent gh-pages@2.2.0
+            git config --global user.email "akshay.r555@gmail.com"
+            git config --global user.name "akshay.harti"
+      - add_ssh_keys:
+          fingerprints:
+            - "b3:a7:cd:17:2e:89:82:d4:cb:eb:59:e1:65:ca:dd:72"
       - run:
           name: Deploy to github pages
           command: lerna run deploy --scope @akshay/ui
