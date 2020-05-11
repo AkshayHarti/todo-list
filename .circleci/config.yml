@@ -33,4 +33,7 @@ workflows:
   version: 2
   master-pipeline:
     jobs:
-      - CI-Phase
+      - CI-Phase:
+          filters:
+            branches:
+              - master
