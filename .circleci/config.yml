@@ -36,4 +36,5 @@ workflows:
       - CI-Phase:
           filters:
             branches:
-              - master
+              only:
+                - master
