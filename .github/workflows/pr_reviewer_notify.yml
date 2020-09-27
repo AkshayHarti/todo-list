@@ -18,6 +18,6 @@ jobs:
         with:
           base-branch: "master"
           bot-token: ${{ secrets.SLACK_BOT_TOKEN }}
-          channel-id: "[CGVBJPF2Q]"
+          channel-id: "[C01BURSQ881]"
           github-token: ${{ secrets.GH_TOKEN }}
-          slack-users: '[{ "github_username": "AkshayHarti", "slack_id": "[T077LAC3T]" }]'
+          slack-users: '[{ "github_username": "AkshayHarti", "slack_id": "[1390247190530.1396443139988]" }]'
