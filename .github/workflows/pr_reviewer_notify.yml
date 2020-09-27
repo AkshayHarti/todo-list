@@ -1,5 +1,4 @@
 # This is a GH action to send slack message to the reviewer on PR creation
-
 name: PR Review Slack Notify
 on:
   pull_request:
