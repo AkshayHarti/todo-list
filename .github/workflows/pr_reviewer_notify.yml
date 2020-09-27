@@ -1,4 +1,4 @@
-# This is a GH action to send a slack message to the reviewer
+# This is a GH action to send slack message to the reviewer on PR creation
 name: PR Review Slack Notify
 on:
   pull_request:
@@ -20,4 +20,4 @@ jobs:
           bot-token: ${{ secrets.SLACK_BOT_TOKEN }}
           channel-id: "[C01BURSQ881]"
           github-token: ${{ secrets.GH_TOKEN }}
-          slack-users: '[{ "github_username": "AkshayHarti", "slack_id": "[1390247190530.1396443139988]" }]'
+          slack-users: '[{ "github_username": "AkshayHarti", "slack_id": "akshay" }, { "github_username": "ramyasubhash", "slack_id": "ramya" }]'
